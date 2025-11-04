@@ -1,0 +1,3 @@
+# Don't include private keys. That would be silly.
+**/home/*/id_ed25519
+**/hosts/*/id_ed25519
