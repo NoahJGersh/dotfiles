@@ -1,0 +1,8 @@
+# Font Setup
+font-family = FiraCode Nerd Font
+
+# Background Setup
+background-opacity = 0.75
+
+# Window
+window-decoration = none
