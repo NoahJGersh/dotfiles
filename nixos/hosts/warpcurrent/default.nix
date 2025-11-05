@@ -8,7 +8,7 @@
     ../common/users/kolastor
 
     # Optional setup
-    ../common/optional/foundryvtt.nix
+    # ../common/optional/foundryvtt.nix
   ];
 
   networking.hostName = "warpcurrent";
