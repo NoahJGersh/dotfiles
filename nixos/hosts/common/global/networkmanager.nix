@@ -2,7 +2,7 @@
 {
   networking.networkmanager.enable = true;
   networking.networkmanager.ensureProfiles = {
-    environmentFiles = [ config.age.secrets.network-secrets.path ];
+    environmentFiles = [ config.age.secrets.network-passwords.path ];
     profiles = {
       Hedgehog = {
         connection = {

@@ -118,5 +118,7 @@
   # Fonts
   fonts.packages = with pkgs; [ font-awesome ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
+  services.logrotate.checkConfig = false;
+
   system.stateVersion = "25.05";
 }

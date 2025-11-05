@@ -25,6 +25,11 @@
     #   url = "github:nix-community/home-manager/release-25.05";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -38,6 +43,7 @@
   } @ inputs: let
     inherit (self) outputs;
   in {
+    overlays = import ./overlays;
 
     nixosConfigurations = {
 

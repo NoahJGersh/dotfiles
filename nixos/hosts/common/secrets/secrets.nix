@@ -1,28 +1,14 @@
 # secrets.nix - used for agenix encryption/decryption of secrets
 let 
-  inherit (import <nixpkgs> { }) lib;
-
-  getKeyFromDir = baseDir: childDir: builtins.readFile (baseDir + "/${childDir}/id_ed25519.pub");
-  getValidChildren = children: lib.attrsets.mapAttrsToList (name: _: name) children;
-
-  homeDir = ../../../home;
-  users = getValidChildren (builtins.readDir homeDir);
-  userKeys = builtins.map (user: getKeyFromDir homeDir user) users;
-
-  hostDir = ../../../hosts;
-  hosts = getValidChildren (lib.attrsets.filterAttrs (n: _: n != "common") (builtins.readDir hostDir));
-  systemKeys = builtins.map (system: getKeyFromDir hostDir system) hosts;
-
-  allKeys = userKeys ++ systemKeys;
-
-  # Granular keys for specific purposes, e.g. user passwords
-  noahgKey = getKeyFromDir homeDir "noahg";
+  inherit (import ../../../utils/ssh-keys.nix ) allKeys hostKeys noahgKey;
 in
 {
   # Users
-  "noahg-password.age".publicKeys = [ noahgKey ] ++ systemKeys;
+  "noahg-password.age".publicKeys = [ noahgKey ] ++ hostKeys;
 
   # Networking
-  "network-secrets.age".publicKeys = allKeys;
+  "network-passwords.age".publicKeys = allKeys;
   "openvpn-auth.age".publicKeys = allKeys;
+  "openvpn-ca.age".publicKeys = allKeys;
+  "openvpn-tls.age".publicKeys = allKeys;
 }
