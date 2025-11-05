@@ -18,5 +18,5 @@ in
 
   allKeys = userKeys ++ hostKeys;
 
-  noahgKey = getKeyFromDir homeDir "noahg";
+  kolastorKey = getKeyFromDir homeDir "kolastor";
 }

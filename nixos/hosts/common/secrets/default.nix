@@ -26,8 +26,8 @@
   };
 
   # User passwords
-  noahg-password = {
-    file = ./noahg-password.age;
+  kolastor-password = {
+    file = ./kolastor-password.age;
     owner = "root";
     group = "root";
   };

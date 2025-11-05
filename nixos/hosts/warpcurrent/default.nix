@@ -5,7 +5,7 @@
 
     # Global setup
     ../common/global
-    ../common/users/noahg
+    ../common/users/kolastor
 
     # Optional setup
     ../common/optional/foundryvtt.nix
@@ -44,7 +44,7 @@
     variant = "";
   };
 
-  nix.settings.trusted-users = [ "root" "noahg" ];
+  nix.settings.trusted-users = [ "root" "kolastor" ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   security.polkit.enable = true;
