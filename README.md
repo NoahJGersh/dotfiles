@@ -8,6 +8,12 @@ Notably, my flake-based configuration follows the general patterning and princip
 
 My setup is a living system configuration, and will be frequently updated as I make modifications. As such, I have the following general additions, fixes, and improvements on my radar.
 
+### Beautification
+
+- [ ] Mako customization
+- [ ] Waybar styling (the standard rectangles are godawful)
+- [ ] Swaylock with an actual background instead of blinding white
+
 ### Home Manager Migration
 
 Though the initial basis for my configuration was largely slapped together based on what I had already set up for Warpcurrent, I plan on migrating to use Home Manager modules for some more user-centric configuration.
