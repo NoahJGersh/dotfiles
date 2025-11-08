@@ -7,7 +7,6 @@
     ./sops.nix
     ./audio.nix
     ./bluetooth.nix
-    ./discord.nix
     ./display-manager.nix
     ./firefox.nix
     ./networkmanager.nix

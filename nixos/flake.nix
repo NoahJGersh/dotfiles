@@ -14,13 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-webapps.url = "github:TLATER/nix-webapps?ref=tlater/idiomatic-flake";
-
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # home-manager = {
     #   url = "github:nix-community/home-manager/release-25.05";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -37,8 +30,6 @@
     nixpkgs,
     sops-nix,
     foundryvtt,
-    nix-webapps,
-    nur,
     ...
   } @ inputs: let
     inherit (self) outputs;
