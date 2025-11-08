@@ -4,8 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
-    agenix = {
-      url = "github:ryantm/agenix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -35,7 +35,7 @@
   outputs = {
     self,
     nixpkgs,
-    agenix,
+    sops-nix,
     foundryvtt,
     nix-webapps,
     nur,
@@ -43,20 +43,22 @@
   } @ inputs: let
     inherit (self) outputs;
   in {
-    overlays = import ./overlays;
-
     nixosConfigurations = {
 
       # Home PC 
       fjorun = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
-        modules = [ ./hosts/fjorun ];
+        modules = [ 
+          ./hosts/fjorun
+        ];
       };
 
       # Laptop (LG Gram)
       warpcurrent = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
-        modules = [ ./hosts/warpcurrent ];
+        modules = [
+          ./hosts/warpcurrent
+        ];
       };
 
     };

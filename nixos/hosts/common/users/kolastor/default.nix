@@ -3,7 +3,7 @@ let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in
 {
-  users.mutableUsers = false;
+  users.mutableUsers = true;
   users.users.kolastor = {
     isNormalUser = true;
     extraGroups = ifTheyExist [
@@ -14,16 +14,15 @@ in
       "wheel"
     ];
 
-    openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/kolastor/id_ed25519.pub);
-    # hashedPasswordFile = config.age.secrets.kolastor-password.path;
+    # openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/kolastor/id_ed25519.pub);
+    hashedPasswordFile = config.sops.secrets.kolastor-password.path;
     # packages = [ pkgs.home-manager ];
   };
 
-  # age.secrets.kolastor-password = {
-  #   file = ../../secrets/kolastor-password.age;
-  #   owner = "root";
-  #   group = "root";
-  # };
+  sops.secrets.kolastor-password = {
+    sopsFile = ../../secrets/passwords.yaml;
+    neededForUsers = true;
+  };
 
   # home-manager.users.kolastor = import ../../../../home/kolastor/${config.networking.hostName}.nix;
 

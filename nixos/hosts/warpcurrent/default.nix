@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -7,11 +7,55 @@
     ../common/global
     ../common/users/kolastor
 
-    # Optional setup
-    # ../common/optional/foundryvtt.nix
+    # Warpcurrent-specific secrets
+    ./secrets
   ];
 
   networking.hostName = "warpcurrent";
+  
+  # VPN interfaces
+  networking.wg-quick.interfaces = {
+    protonVPN_fast = {
+      autostart = true;
+      address = [
+        "10.2.0.2/32"
+      ];
+      dns = [
+        "10.2.0.1"
+      ];
+      peers = [
+        {
+          allowedIPs = [
+            "0.0.0.0/0"
+            "::/0"
+          ];
+          endpoint = "79.127.185.166:51820";
+          publicKey = "2xvxhMK0AalXOMq6Dh0QMVJ0Cl3WQTmWT5tdeb8SpR0=";
+        }
+      ];
+      privateKeyFile = config.sops.secrets.protonvpn-us-ca-private-key.path;
+    };
+    protonVPN_uk = {
+      autostart = false;
+      address = [
+        "10.2.0.2/32"
+      ];
+      dns = [
+        "10.2.0.1"
+      ];
+      peers = [
+        {
+          allowedIPs = [
+            "0.0.0.0/0"
+            "::/0"
+          ];
+          endpoint = "146.70.133.130:51820";
+          publicKey = "SrT34F0BbJq2U7v8/1V1MRFUMnn7YixbhWUN01xnF2Q=";
+        }
+      ];
+      privateKeyFile = config.sops.secrets.protonvpn-uk-private-key.path;
+    };
+  };
 
   boot = {
     loader.systemd-boot.enable = true;
@@ -21,7 +65,7 @@
   };
 
   environment.variables = {
-    ELECTRON_OZONG_PLATFORM_HINT = "auto";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
   time.timeZone = "America/Los_Angeles";
@@ -80,39 +124,36 @@
     cargo
     rustc
 
-   # Other languages/toolchains
-   go
-   gcc
-   python314
+    # Other languages/toolchains
+    go
+    gcc
+    python314
 
-   # Communication
-   protonmail-desktop
-   zoom-us
+    # Communication
+    protonmail-desktop
+    zoom-us
+    discord
 
-   # Security
-   openresolv
-   inputs.agenix.packages."${system}".default
+    # Media
+    ffmpeg
+    spotify
+    playerctl
 
-   # Media
-   ffmpeg
-   spotify
-   playerctl
+    # Nix utils
+    cachix
 
-   # Nix utils
-   cachix
+    # Desktop env utils
+    waybar
+    fuzzel
+    swaylock
+    mako
+    swayidle
+    wpaperd
+    nautilus
+    pavucontrol
 
-   # Desktop env utils
-   waybar
-   fuzzel
-   swaylock
-   mako
-   swayidle
-   wpaperd
-   nautilus
-   pavucontrol
-
-   # Extra display stuff
-   xwayland-satellite
+    # Extra display stuff
+    xwayland-satellite
   ];
 
   # Fonts

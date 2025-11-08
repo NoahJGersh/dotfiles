@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./age.nix
+    ./sops.nix
     ./audio.nix
     ./bluetooth.nix
     ./discord.nix
@@ -14,7 +14,6 @@
     ./niri.nix
     ./openssh.nix
     ./vim.nix
-    ./vpn.nix
   ];
 
   # home-manager.useGlobalPkgs = true;
