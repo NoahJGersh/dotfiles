@@ -4,6 +4,16 @@ This repo contains all of my NixOS system/user configuration.
 
 Notably, my flake-based configuration follows the general patterning and principles of [Misterio77's nix-config](https://github.com/Misterio77/nix-config). My setup is much more pared down, and currently only properly built for my laptop.
 
+## Deploying
+
+The configuration's root flake is located in the `nixos/` subdirectory. As such, the configuration can be deployed as follows:
+
+```
+sudo nixos-rebuild switch --flake github:NoahJGersh/dotfiles?dir=nixos#warpcurrent
+```
+
+Do note that NixOS should be pre-installed to generate the proper `hardware-configuration.nix`, and to have a proper host SSH key for `sops-nix` to function properly.
+
 ## Roadmap
 
 My setup is a living system configuration, and will be frequently updated as I make modifications. As such, I have the following general additions, fixes, and improvements on my radar.
