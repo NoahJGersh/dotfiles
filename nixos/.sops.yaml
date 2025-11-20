@@ -1,9 +1,11 @@
 keys:
   - &admin_kolastor age1rd49fdj9wcztkarengxqrhvyypdxqc6s54aqfjnqz85wn9y00ues9zwpvm
   - &system_warpcurrent age1rhd6kn9vnwcxq0xl994cfplff7h7vzp3tavqpv5z2rmu0nw6mqks5m5kj2
+  - &system_fjorun age1l7z82ynjearj28n27kdx82rjgpmru0c4myja9ehpwm25ddcuqe6qlyh8ph
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
         - *admin_kolastor
         - *system_warpcurrent
+        - *system_fjorun
