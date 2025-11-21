@@ -9,6 +9,8 @@
 
     # Warpcurrent-specific secrets
     ./secrets
+
+    ../common/optional/foundryvtt.nix
   ];
 
   networking.hostName = "warpcurrent";

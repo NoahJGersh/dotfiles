@@ -10,7 +10,7 @@
     };
 
     foundryvtt = {
-      url = "github:NoahJGersh/nix-foundryvtt?ref=13.350";
+      url = "github:NoahJGersh/nix-foundryvtt?ref=13.351";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -28,8 +28,6 @@
   outputs = {
     self,
     nixpkgs,
-    sops-nix,
-    foundryvtt,
     ...
   } @ inputs: let
     inherit (self) outputs;
