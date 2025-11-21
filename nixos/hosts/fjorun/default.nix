@@ -6,6 +6,9 @@
     # Global setup
     ../common/global
     ../common/users/kolastor
+
+    # Optional setup
+    ../common/optional/gaming.nix
   ];
 
   hardware.graphics = {
@@ -14,6 +17,7 @@
   };
 
   hardware.amdgpu.initrd.enable = true;
+  hardware.amdgpu.opencl.enable = true;
 
   networking.hostName = "fjorun";
 
@@ -22,9 +26,6 @@
     loader.efi.canTouchEfiVariables = true;
     
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "video=DP-1:2560x1080@144"
-    ];
   };
 
   environment.variables = {
