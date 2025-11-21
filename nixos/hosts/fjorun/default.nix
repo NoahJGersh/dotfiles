@@ -8,6 +8,13 @@
     ../common/users/kolastor
   ];
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  hardware.amdgpu.initrd.enable = true;
+
   networking.hostName = "fjorun";
 
   boot = {
@@ -15,6 +22,9 @@
     loader.efi.canTouchEfiVariables = true;
     
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [
+      "video=DP-1:2560x1080@144"
+    ];
   };
 
   environment.variables = {
