@@ -9,6 +9,7 @@
 
     # Optional setup
     ../common/optional/gaming.nix
+    ../common/optional/vpn.nix
   ];
 
   hardware.graphics = {
