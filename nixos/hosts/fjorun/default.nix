@@ -10,6 +10,7 @@
     # Optional setup
     ../common/optional/gaming.nix
     ../common/optional/vpn.nix
+    ../common/optional/torrent.nix
   ];
 
   hardware.graphics = {
