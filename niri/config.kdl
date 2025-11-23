@@ -116,6 +116,10 @@ output "DP-1" {
     variable-refresh-rate on-demand=true
 }
 
+output "HDMI-A-1" {
+    mode "2560x1440@144.000"
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
