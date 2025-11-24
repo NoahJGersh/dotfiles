@@ -11,6 +11,7 @@
     ../common/optional/gaming.nix
     ../common/optional/vpn.nix
     ../common/optional/torrent.nix
+    ../common/optional/blender.nix
   ];
 
   hardware.graphics = {
