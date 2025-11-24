@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    systems.url = "github:nix-systems/default-linux";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -14,10 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # home-manager = {
-    #   url = "github:nix-community/home-manager/release-25.05";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -28,9 +29,19 @@
   outputs = {
     self,
     nixpkgs,
+    home-manager,
+    niri,
+    systems,
     ...
   } @ inputs: let
     inherit (self) outputs;
+    pkgsFor = nixpkgs.lib.genAttrs (import systems) (
+      system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+    );
   in {
     nixosConfigurations = {
 
@@ -52,13 +63,15 @@
 
     };
     
-    # homeConfigurations = {
+    homeConfigurations = {
     
-    #   "kolastor@fjorun" = home-manager.lib.homeManagerConfiguration {
-    #     pkgs = pkgsFor.x86_64-linux;
-    #     extraSpecialArgs = { inherit inputs outputs; };
-    #     modules = [ ./home/kolastor/fjorun.nix ./home/kolastor/nixpkgs.nix ];
-    #   };
+      "kolastor@fjorun" = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [
+          ./home/kolastor/fjorun.nix
+        ];
+      };
 
     #   "kolastor@warpcurrent" = home-manager.lib.homeManagerConfiguration {
     #     pkgs = pkgsFor.x86_64-linux;
@@ -66,6 +79,6 @@
     #     modules = [ ./home/kolastor/warpcurrent.nix ./home/kolastor/nixpkgs.nix ];
     #   };
 
-    # };
+    };
   };
 }

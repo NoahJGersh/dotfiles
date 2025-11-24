@@ -57,8 +57,6 @@
   nix.settings.trusted-users = [ "root" "kolastor" ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = {};
 
   environment.systemPackages = with pkgs; [
@@ -112,9 +110,7 @@
     waybar
     fuzzel
     swaylock
-    mako
     swayidle
-    wpaperd
     nautilus
     pavucontrol
 
