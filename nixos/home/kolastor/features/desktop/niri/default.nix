@@ -14,7 +14,6 @@
 
     layout.focus-ring = {
       active = {
-        color = "#7fc8ff";
         gradient = {
           angle = -45;
           from = "#ffa401";
