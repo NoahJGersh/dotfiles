@@ -44,7 +44,12 @@
       # Support gradient border with rounded corners and transparent backgrounds
       # Especially important for Ghostty, which I've configured with semi-transparent BG
       {
-        geometry-corner-radius = 12;
+        geometry-corner-radius = {
+          top-left = 12.0;
+          top-right = 12.0;
+          bottom-left = 12.0;
+          bottom-right = 12.0;
+        };
         clip-to-geometry = true;
         draw-border-with-background = false;
       }
