@@ -16,6 +16,5 @@
     username = lib.mkDefault "kolastor";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = lib.mkDefault "25.05";
-    sessionpath = ["$HOME/.local/bin"];
   };
 }
