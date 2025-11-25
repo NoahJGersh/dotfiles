@@ -1,7 +1,5 @@
 { config, inputs, outputs, lib, pkgs, ... }:
 {
-  imports = [ ] ++ (builtins.attrValues.homeManagerModules);
-
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings = {
