@@ -2,6 +2,8 @@
 {
   imports = [
     ./global
+
+    ./features/desktop/niri
   ];
 
   # LG Ultrawide
