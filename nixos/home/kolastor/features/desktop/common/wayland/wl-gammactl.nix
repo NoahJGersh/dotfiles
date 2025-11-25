@@ -1,8 +1,8 @@
-{ config, pkgs, fetchFromGitHub, ... }:
+{ config, pkgs, ... }:
 {
   home.packages = with pkgs; [
     (wl-gammactl.overrideAttrs (final: prev: {
-      src = fetchFromGitHub {
+      src = pkgs.fetchFromGitHub {
         owner = "mistgc";
         repo = "wl-gammactl";
         rev = "a796f55d81c558f1e4bde4a713c3f171b9005624";
