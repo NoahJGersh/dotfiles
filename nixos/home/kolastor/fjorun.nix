@@ -4,6 +4,8 @@
     ./global
 
     ./features/desktop/niri
+
+    ./features/creative/bambu-studio.nix
   ];
 
   # LG Ultrawide
