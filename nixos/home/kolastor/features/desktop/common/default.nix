@@ -4,5 +4,6 @@
     ./discord.nix
     ./firefox.nix
     ./pavucontrol.nix
+    ./vlc.nix
   ];
 }
