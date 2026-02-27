@@ -12,6 +12,7 @@ in
       "network"
       "video"
       "wheel"
+      "dialout"
     ];
 
     # openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/kolastor/id_ed25519.pub);

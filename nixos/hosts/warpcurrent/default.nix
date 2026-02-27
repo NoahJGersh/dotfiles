@@ -98,6 +98,9 @@
   security.pam.services.swaylock = {};
 
   environment.systemPackages = with pkgs; [
+    # Chromium is a must for serial
+    vivaldi
+
     # Terminal
     ghostty
 
