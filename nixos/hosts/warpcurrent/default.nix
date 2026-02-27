@@ -11,6 +11,7 @@
     ./secrets
 
     ../common/optional/foundryvtt.nix
+    ../common/optional/postgres.nix
   ];
 
   networking.hostName = "warpcurrent";
