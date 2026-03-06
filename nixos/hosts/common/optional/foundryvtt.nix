@@ -6,6 +6,7 @@
   services.foundryvtt = {
     enable = true;
     minifyStaticFiles = true;
+    debug = true;
     package = inputs.foundryvtt.packages.${pkgs.system}.foundryvtt_13;
   };
 }
