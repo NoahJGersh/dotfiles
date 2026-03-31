@@ -12,6 +12,7 @@
     ../common/optional/vpn.nix
     ../common/optional/torrent.nix
     ../common/optional/blender.nix
+    ../common/optional/foundryvtt.nix
   ];
 
   hardware.graphics = {
