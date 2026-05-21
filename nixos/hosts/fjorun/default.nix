@@ -13,6 +13,7 @@
     ../common/optional/torrent.nix
     ../common/optional/blender.nix
     ../common/optional/foundryvtt.nix
+    ../common/optional/postgres.nix
   ];
 
   hardware.graphics = {

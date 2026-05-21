@@ -6,6 +6,8 @@
     ./features/desktop/niri
 
     ./features/creative/bambu-studio.nix
+
+    ./features/gaming/prismlauncher.nix
   ];
 
   # LG Ultrawide
