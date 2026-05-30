@@ -7,7 +7,7 @@
   environment.systemPackages = with pkgs; [
     # Launchers
     lutris
-    
+
     # Supplementary
     adwaita-icon-theme
   ];

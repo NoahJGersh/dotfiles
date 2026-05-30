@@ -2,7 +2,7 @@
   description = "NixOS Configuration for my machines";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     systems.url = "github:nix-systems/default-linux";
 
     sops-nix = {
@@ -16,7 +16,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -40,6 +40,7 @@
         import nixpkgs {
           inherit system;
           config.allowUnfree = true;
+          config.rocmSupport = true;
         }
     );
   in {
@@ -50,6 +51,8 @@
         specialArgs = { inherit inputs outputs; };
         modules = [ 
           ./hosts/fjorun
+
+          (import ./overlays)
         ];
       };
 

@@ -7,6 +7,7 @@
   ];
 
   programs.niri.enable = true;
+  programs.niri.package = pkgs.niri;
   programs.niri.settings = {
     environment = {
       "NIXOS_OZONE_WL" = "1";

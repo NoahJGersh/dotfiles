@@ -83,7 +83,6 @@
     # Web Dev
     nodejs_24 # Next
     nodejs_22 # LTS
-    nodejs_20 # Deprecated (for compat)
     nodenv
     pnpm
     yarn
@@ -119,6 +118,15 @@
 
     # Extra display stuff
     xwayland-satellite
+
+    # Gaming
+    (prismlauncher.override {
+      jdks = [
+        pkgs.zulu21
+        pkgs.zulu25
+      ];
+
+    }) 
   ];
 
   # Fonts

@@ -1,4 +1,4 @@
 { config, pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [ blender-hip ];
+  environment.systemPackages = with pkgs; [ blender ];
 }

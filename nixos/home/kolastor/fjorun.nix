@@ -4,6 +4,7 @@
     ./global
 
     ./features/desktop/niri
+    ./features/desktop/common
 
     ./features/creative/bambu-studio.nix
 
@@ -32,7 +33,6 @@
 
   # Calibrate display values
   programs.niri.settings.spawn-at-startup = [
-    { argv = [ "wl-gammactl" "-c" "1.000" "-b" "1.010" "-g" "0.990" "-m" "HDMI-A-1" ]; }
     { argv = [ "wl-gammactl" "-c" "0.835" "-b" "1.005" "-g" "1.550" "-m" "DP-1" ]; }
   ];
 }
