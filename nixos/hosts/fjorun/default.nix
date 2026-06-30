@@ -114,6 +114,7 @@
     swaylock
     swayidle
     nautilus
+    sushi
     pavucontrol
 
     # Extra display stuff
