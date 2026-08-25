@@ -104,6 +104,7 @@
     ffmpeg
     spotify
     playerctl
+    obs-studio
 
     # Nix utils
     cachix

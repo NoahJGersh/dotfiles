@@ -7,6 +7,7 @@
     ./features/desktop/common
 
     ./features/creative/bambu-studio.nix
+    ./features/creative/godot.nix
 
     ./features/gaming/prismlauncher.nix
   ];
