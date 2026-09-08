@@ -1,4 +1,4 @@
 { config, pkgs, ... }:
 {
-  home.packages = with pkgs; [ godot ];
+  home.packages = with pkgs; [ godot-mono ];
 }

@@ -73,12 +73,12 @@
     powerline
 
     # VSCodium config
-    (vscode-with-extensions.override {
-      vscode = vscodium;
-      vscodeExtensions = with vscode-extensions; [
-        rust-lang.rust-analyzer
-      ];
-    })
+    #(vscode-with-extensions.override {
+    #  vscode = vscodium;
+    #  vscodeExtensions = with vscode-extensions; [
+    #    rust-lang.rust-analyzer
+    #  ];
+    #})
 
     # Web Dev
     nodejs_24 # Next
