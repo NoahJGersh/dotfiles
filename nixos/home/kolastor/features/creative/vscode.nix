@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 {
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-    package = pkgs.vscodium;
     profiles.default = {
       userSettings = {
         "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "${pkgs.dotnet-sdk_9}/bin";
@@ -17,7 +16,7 @@
     };
   };
 
-  home.packages = [
+  home.packages = with pkgs; [
       dotnetCorePackages.dotnet_9.sdk
   ];
 }

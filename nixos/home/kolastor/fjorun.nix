@@ -8,6 +8,7 @@
 
     ./features/creative/bambu-studio.nix
     ./features/creative/godot.nix
+    ./features/creative/vscode.nix
 
     ./features/gaming/prismlauncher.nix
   ];
