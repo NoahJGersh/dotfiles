@@ -8,10 +8,14 @@
         "godotTools.lsp.serverPort" = 6005;
       };
       extensions = with pkgs.vscode-extensions; [
+        # General
+        vscodevim.vim
+
         # CSharp / Godot
         geequlim.godot-tools
         ms-dotnettools.csharp
         ms-dotnettools.vscode-dotnet-runtime
+
       ];
     };
   };
