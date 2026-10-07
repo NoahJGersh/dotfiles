@@ -36,6 +36,6 @@
 
   # Calibrate display values
   programs.niri.settings.spawn-at-startup = [
-    { argv = [ "wl-gammactl" "-c" "0.835" "-b" "1.005" "-g" "1.550" "-m" "DP-1" ]; }
+    { sh = "wl-gammactl -c 0.835 -b 1.005 -g 1.550 -m DP-1"; }
   ];
 }

@@ -110,7 +110,6 @@
     cachix
 
     # Desktop env utils
-    waybar
     fuzzel
     swaylock
     swayidle

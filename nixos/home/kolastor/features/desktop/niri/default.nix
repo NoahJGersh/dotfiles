@@ -13,6 +13,11 @@
       "NIXOS_OZONE_WL" = "1";
     };
 
+    cursor = {
+      theme = "phinger-cursors-dark";
+      size = 24;
+    };
+
     input.keyboard.numlock = true;
     input.touchpad.tap = true;
     input.touchpad.natural-scroll = true;
@@ -33,7 +38,7 @@
     };
 
     spawn-at-startup = [
-      { argv = ["waybar"]; }
+      { sh = "systemctl --user reset-failed waybar.service"; }
       { argv = ["wpaperd"]; }
     ];
 
@@ -223,9 +228,11 @@
 
       "Mod+W".action = toggle-column-tabbed-display;
       
-      # "Mod+S".action = screenshot-window;
-      # "Mod+Shift+S".action = screenshot;
-      # "Mod+Ctrl+S".action = screenshot-screen;
+      # This is a necessary workaround.
+      # See: https://github.com/sodiboo/niri-flake/issues/922
+      "Mod+Shift+S".action.screenshot = [];
+      "Mod+S".action.screenshot-window = [];
+      "Mod+Ctrl+S".action.screenshot-screen = [];
 
       "Mod+Escape" = {
         allow-inhibiting = false;
